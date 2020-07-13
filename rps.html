@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<script>
+
+   function computerPlay() {
+        const choices = ["rock", "paper", "scissors"];
+        let randomChoice = choices[Math.floor(Math.random()*choices.length)];
+        return (randomChoice);    
+    }
+
+    let makeChoice = String("rock, paper, or scissors?");
+    let computerSelection = String(computerPlay()); 
+    let playerSelection = makeChoice.toLowerCase(); 
+    let playerWin = 0; 
+    let compWin = 0; 
+  
+
+    function playRound(computerSelection, playerSelection) {
+        playerSelection = playerSelection;
+        computerSelection = computerSelection; 
+        if ((computerSelection == 'rock') && (playerSelection == 'paper')) {
+            console.log('Paper beats rock, you win!');
+            playerWin++;
+        } else if ((computerSelection == 'paper') && (playerSelection == 'scissors')) {
+            console.log('Scissors beat paper, you win!');
+            playerWin++;
+        } else if ((computerSelection == 'scissors') && (playerSelection == 'rock')){
+            console.log('Rock beats scissors, you win!');
+            playerWin++;
+        } else if ((computerSelection == 'rock') && (playerSelection == 'scissors')){
+            console.log('Rock beats scissors, you lose!');
+            compWin++;
+        } else if ((computerSelection == 'paper') && (playerSelection == 'rock')){
+            console.log('Paper beats rock, you lose!');
+            compWin++; 
+        } else if ((computerSelection == 'scissors') && (playerSelection == 'paper')){
+            console.log('Scissors beat paper, you lose!');
+            compWin++; 
+        } else console.log(`It's a draw!`);
+    }
+
+
+    function game() {
+        for(let i = 0; i < 5; i++) { 
+
+        computerSelection = computerPlay();
+        playerSelection = String(prompt("rock, paper, or scissors?")).toLowerCase(); 
+        playRound(computerSelection, playerSelection); 
+        console.log(`Player: ${playerWin} Computer: ${compWin}`);
+        };
+        if (playerWin > compWin){
+            console.log('Congratulations, you won!')
+        };
+        else if (playerWin < compWin){
+            console.log('Sorry, computer won!')
+        };
+        else console.log(`It's a draw!`);
+    }
+
+
+</script>
+<body>
+    
+</body>
+</html>
